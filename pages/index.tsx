@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Button } from "../shared/Button"
-import getDecodedMulticall from "../lib/getDecodedMulticall"
+import axios from "axios"
+import QueryString from "qs"
 
 const multicalls = [
   "0xe72878b40000000000000000000000000000000000000000000000000000000000000001",
@@ -14,10 +15,20 @@ const multicalls = [
 const MulticallDecoder = () => {
   const [decoded, setDecoded] = useState([])
 
-  const handleClick = () => {
+  const getDecodedMulticall = async () => {
+    const response = await axios.get("/api/decode/multicall", {
+      params: {
+        multicalls,
+      },
+      paramsSerializer: (params) => QueryString.stringify(params, { arrayFormat: "repeat" }),
+    })
+    console.log("SWEETS RESPONSE", response)
+  }
+
+  const handleClick = async () => {
     console.log("SWEETS Decoding multicalls against ABI")
-    const decodedCalls = multicalls.map((call) => getDecodedMulticall(call))
-    setDecoded(decodedCalls)
+    const decodedCalls = await getDecodedMulticall()
+
     console.log("SWEETS decodedCalls", decodedCalls)
   }
 
