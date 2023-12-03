@@ -1,0 +1,169 @@
+[
+  {
+    "type": "constructor",
+    "name": "",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_cre8orsNFT",
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "_passportContractAddress",
+        "internalType": "address"
+      },
+      {
+        "type": "uint256[]",
+        "name": "_usedPassportTokenIds",
+        "internalType": "uint256[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "error",
+    "name": "Access_OnlyAdmin",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "ApprovalCallerNotOwnerNorApproved",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "DuplicatesFound",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "FreeMintAlreadyClaimed",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "MissingDiscount",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "addDiscount",
+    "inputs": [
+      {
+        "type": "address[]",
+        "name": "recipient",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "cre8orsNFT",
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "freeMintClaimed",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "hasDiscount",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "mint",
+    "inputs": [
+      {
+        "type": "uint256[]",
+        "name": "passportTokenIDs",
+        "internalType": "uint256[]"
+      },
+      {
+        "type": "address",
+        "name": "recipient",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "passportContractAddress",
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "removeDiscount",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]

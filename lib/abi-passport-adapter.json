@@ -1,0 +1,39 @@
+[
+  {
+    "type": "constructor",
+    "name": "",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_cre8orsClaimContractAddress",
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "_cre8orsPassportContractAddress",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimPassport",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_tokenId",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  }
+]

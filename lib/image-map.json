@@ -1,0 +1,30 @@
+{
+  "name": "cre8ors-map",
+  "areas": [
+    {
+      "id": "469f9800-c45a-483f-b13e-bd24f3fb79f4",
+      "title": "the start",
+      "shape": "rect",
+      "name": "1",
+      "fillColor": "#eab54d4d",
+      "strokeColor": "black",
+      "coords": [998, 470, 548, 284],
+      "polygon": [
+        [998, 470],
+        [470, 548],
+        [548, 284],
+        [284, 998],
+        [11.606965174129343, 438.3084577114427]
+      ]
+    },
+    {
+      "id": "1db62daa-22a4-4b02-b5c0-fffdcf77c66c",
+      "title": "the challenge",
+      "shape": "rect",
+      "name": "2",
+      "fillColor": "#eab54d4d",
+      "strokeColor": "black",
+      "coords": [1178, 1193, 595, 1381]
+    }
+  ]
+}
