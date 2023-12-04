@@ -23,6 +23,7 @@ const MulticallDecoder = () => {
       paramsSerializer: (params) => QueryString.stringify(params, { arrayFormat: "repeat" }),
     })
     console.log("SWEETS RESPONSE", response)
+    setDecoded(response?.data?.decodedCalls)
   }
 
   const handleClick = async () => {
