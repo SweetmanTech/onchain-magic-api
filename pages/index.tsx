@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Button } from "../shared/Button"
-import axios from "axios"
-import QueryString from "qs"
+import getDecoded from "../lib/getDecoded"
 
 const multicalls = [
   "0xe72878b40000000000000000000000000000000000000000000000000000000000000001",
@@ -15,31 +14,17 @@ const multicalls = [
 const MulticallDecoder = () => {
   const [decoded, setDecoded] = useState([])
 
-  const getDecodedMulticall = async () => {
-    const response = await axios.get("/api/decode/multicall", {
-      params: {
-        multicalls,
-      },
-      paramsSerializer: (params) => QueryString.stringify(params, { arrayFormat: "repeat" }),
-    })
-    console.log("SWEETS RESPONSE", response)
-    setDecoded(response?.data?.decodedCalls)
-  }
-
   const handleClick = async () => {
-    console.log("SWEETS Decoding multicalls against ABI")
-    const decodedCalls = await getDecodedMulticall()
-
-    console.log("SWEETS decodedCalls", decodedCalls)
+    const decodedCalls = await getDecoded(multicalls)
+    setDecoded(decodedCalls as any)
   }
 
   return (
     <div className="flex flex-col justify-center items-center h-[100vh] text-white">
       MULTICALL DECODER
-      {decoded.map((call) => {
-        console.log("SWEETS CALL", call)
-        return <div key="1">{call?.functionName || "???UNKNOWN_CALL???"}</div>
-      })}
+      {decoded.map((call) => (
+        <div key={call?.functionName}>{call?.functionName || "???UNKNOWN_CALL???"}</div>
+      ))}
       <Button id="decode" onClick={handleClick}>
         Decode
       </Button>
