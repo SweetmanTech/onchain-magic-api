@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button } from "../shared/Button"
-import getDecodedMulticall from "../lib/getDecodedMulticall"
+import getDecoded from "../lib/getDecoded"
 
 const multicalls = [
   "0xe72878b40000000000000000000000000000000000000000000000000000000000000001",
@@ -14,20 +14,17 @@ const multicalls = [
 const MulticallDecoder = () => {
   const [decoded, setDecoded] = useState([])
 
-  const handleClick = () => {
-    console.log("SWEETS Decoding multicalls against ABI")
-    const decodedCalls = multicalls.map((call) => getDecodedMulticall(call))
-    setDecoded(decodedCalls)
-    console.log("SWEETS decodedCalls", decodedCalls)
+  const handleClick = async () => {
+    const decodedCalls = await getDecoded(multicalls)
+    setDecoded(decodedCalls as any)
   }
 
   return (
     <div className="flex flex-col justify-center items-center h-[100vh] text-white">
       MULTICALL DECODER
-      {decoded.map((call) => {
-        console.log("SWEETS CALL", call)
-        return <div key="1">{call?.functionName || "???UNKNOWN_CALL???"}</div>
-      })}
+      {decoded.map((call) => (
+        <div key={call?.functionName}>{call?.functionName || "???UNKNOWN_CALL???"}</div>
+      ))}
       <Button id="decode" onClick={handleClick}>
         Decode
       </Button>
