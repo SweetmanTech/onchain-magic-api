@@ -11,11 +11,8 @@ export async function GET(request: NextRequest) {
     await trackEndpoint("zora+collections")
     const creator = new URL(request.url).searchParams.get('creator') as Address; 
     const {events, blockNumber} = await getStackSetupNewContractEvents(creator);
-    console.log("SWEETS EXISTING EVENTS", events.length);
-    console.log("SWEETS get new from block", blockNumber);
     const logs = await getSetupNewContractLogs(creator, blockNumber)
     const formattedLogs = formatLogs(logs);
-    console.log("SWEETS NEW formattedLogs", formattedLogs.length);
     await bulkTrackNewContracts(formattedLogs);
     return Response.json({ message: 'success', data: [...events, ...formattedLogs] });
   } catch (error) {
