@@ -1,10 +1,11 @@
+import { CHAIN_ID, SETUP_NEW_CONTRACT_STACK_EVENT_NAME_BASE } from '@/lib/consts';
 import { stack } from '@/lib/stack/client';
 import { Address, BlockTag } from 'viem';
 
 const getStackSetupNewContractEvents = async (creator: Address) => {
   const response = await stack.getEvents({
     address: creator,
-    event: 'SetupNewContract',
+    event: `${SETUP_NEW_CONTRACT_STACK_EVENT_NAME_BASE}-${CHAIN_ID}`,
   });
 
   const blockNumbers = response
